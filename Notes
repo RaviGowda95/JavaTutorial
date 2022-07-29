@@ -1,0 +1,373 @@
+Notes for Java OOPS Concepts
+
+Class,Objects and Methods
+-------------------------
+A Class is a collection of variables and methods.
+An object is an instance of class(physical)
+A method is a piece of code which will perform certain task.
+method should be part of a class.
+
+3 ways to initialize the values to class variables.
+1.Using object (directly)
+2.Using constructor
+3.Using method
+
+______________________________________________________
+Constructor :
+1.It is a special kind of method.
+2.Constructor name should have same name as Class.
+3.Constructor will not return any value.
+4.Constructor will be invoked at the time of object creation.(no need to call the constructor explicitly).
+5.Constructor will take the parameters (just like the method).
+6.Constructor is used to initialize the values.
+7.No need to specify void as well.
+
+Two types of Constructor
+1.Default Constructor.
+2.Parameterized Constructor.
+__________________________________________________________
+This Keyword:
+Whenever we have to use same external variable names as local variables we use this keyword.
+
+4 different types of methods.
+1.A method may not take parameters.
+2.A method may take parameter.
+3.A method returns some value.
+4.A method may not return any value.
+_______________________________________________________
+Method Overloading- A Class contains more than 1 method with same name but different parameters/arguments is called method overloading.
+Constructor Overloading - A Class contains more than 1 constructor with different parameters/arguments is called constructor overloading.
+
+_______________________________________________________
+Static Keyword:
+1.Static variables and methods are shared across all the objects.
+2.Static variables and methods can directly be accessed through class name.
+
+Static method can only directly access static stuff(both variable & method without creating any object)
+Static method can access non static stuff through object creation.
+Non static method can access everything (static and non static stuff directly).
+_________________________________________________________
+
+JDK,JRE,JVM
+
+JDK - Java Development Kit(JRE & JVM) is used for developing Java applications/softwares.
+JRE - Java Run Time Environment(JVM) - it provides environment to run/install java based applications.
+JVM - Java Virtual Machine - responsible for executing java programs.
+_________________________________________________________
+Inheritance
+Acquiring methods and variables from parent class to child class is called as Inheritance.
+
+class A  //Parent class/Super class/Base class
+{
+void m1()
+{
+---
+---
+}
+
+}
+
+
+}
+class B extends A  //Child class/Sub class/Derived class
+{
+void m1()
+{
+---
+---
+}	
+}
+
+Types of Inheritance:
+1.Single
+2.Multi-level
+3.Multiple inheritance ( cannot achieve using class)
+4.Hierarchical
+5.Hybrid
+
+________________________________________________________________
+Method Overriding:
+Re-define the same method from parent class into child class.
+or
+Changing the method body in child class which is extending parent class
+
+class A  
+{
+---
+---
+}
+class B extends A  
+{
+---
+---
+}
+
+-------------------------
+Overloading                                       Overriding
+------------------------------------------------------------
+No inheritance required                        atleast we should have 2 classes(1 parent 1 is child)
+definition(paramenters) should not be same     definition should be same but body can be changed.
+
+___________________________________________
+Final Keyword
+It can be applied to a variable, method or a class.
+
+final int a =10; // the value of the variable is constant (we cannot change)
+
+final void m1(){  // method cannot be override in the child class
+.....
+}
+
+final class Test  //class cannot be extended
+{
+
+}
+____________________________________________________________________
+
+Interface
+
+Interface contains final & static variables , abstract methods.
+
+1.It is a blue print of class.
+
+interface TestInt
+{
+//variables
+//methods
+}
+
+2.Interface contains only static and final variables (By default)
+3.In Interface, by default methods are public
+4.In interface, methods are by default abstract
+
+abstract : a method having only definition but not implementation.
+ void m1();
+ 
+ 
+ interface TestInt
+ {
+ 	void m1();
+ }
+ 
+ 
+ class TestClass implements TestInt
+ {
+ 	void m1()
+ 	{
+ 	//implement the body
+ 	}	
+ 	
+ }
+ 
+ 5. We cannot instantiate interface
+ 
+ TestInt objtest = new TestInt();  // not valid
+ TestInt objtest = new TestClass(); // valid 
+ 
+ 
+ Multiple Inheritance(2 or more parents& 1 child)
+ here 2 parents would be an interface and child would be a Class which uses implements keyword
+ __________________________________________________________________________________________
+ 
+ Package --> collection classes
+ 2 types of packages
+ 1.user defined : created by us
+ 2. built-in/pre-defined : import statement will be used for built-in packages
+_________________________________________________________________________
+Access Modifiers
+
+ public 
+ default
+ protected
+ private
+
+private - accessible  only within the class
+default - accessible  only within the package(outside of the package is not accessible)
+protected - accessible within the package and outside of the package but only through inheritance
+public - can be accessible everywhere(within the class, within the package, outside the package)
+
+Access Modifiers 	within the class	within the package	outside the package
+-------------------------------------------------------------------------------
+private                Y	                  N             	N
+default	               Y	                  Y             	N
+protected	           Y	                  Y	                Y (through inheritance)
+public	               Y	                  Y	                Y
+
+________________________________________________________________________________
+Exception Handling
+------------------
+Exception is an event which will terminate the program unexpectedly.
+
+2 types of exceptions
+1.Checked Exceptions - Exceptions are identified by the Java compiler
+
+eg: IOException, FileNotFoundException,InterruptedException etc....
+
+
+2.Un-checked Exceptions- Exceptions which are not identified by the Java compiler
+
+eg. AritmethicException, NullPointerException, NumberFormatException, ArrayIndexOutofBoundException etc...
+
+Handle Exception
+------------
+try
+{
+//specify the statement which causes exception
+}
+catch(Exception type)
+{
+//write the code
+}
+finally
+{
+//some code
+}
+
+1.Exception occurs, catch block handles, finally block also execute
+2.Exception occurs, catch block not handles, finally block execute
+3.Exception not occurs,catch block will ignore, finally block execute
+
+There are 2 methods to handle exceptions
+1. try ..catch block (handling checked & un-checked exceptions)
+2. throws keyword (only for checked exceptions)
+
+________________________________________________________________________________________________________________
+Arrays
+
+Array: It is set of elements with same data types.
+
+int a[]= new int[4]; //single dimensional array
+
+1. How to declare an array
+2. How to store elements into an array
+3. How to read elements from an array
+
+int a[] = new int[3];         //integer array
+String s[] = new String[3];   //string array
+char c[] =  new char[3];      // char array
+
+
+int a;
+a=10;
+
+String s ;
+s = "hello";
+
+char c;
+c= 'R';
+
+Object s;  // while using object we can store value of any data types
+
+s= 11;
+s=10.56;
+s="Hello";
+s='G';
+s=true;
+
+Object a[] = new Object[5];
+
+2 types of array
+1. Single dimensional array
+2. Two dimensional/multi dimensional array
+
+//Declaring 1 dimensional array
+int a[] = new int[3];
+or
+int a[] = { 10,20,30 };
+
+//Declaring 2 dimensional array
+int a[][] = new int[3][2];
+or
+int a[][] = { {10,20} , {30,40} , {50,60} };
+______________________________________________________________________________
+
+String Methods
+-----------
+String s = "Welcome"
+
+length() - returns the length of the string
+equals() - compare the strings
+equalsignoreCase() - compare the strings (ignores case sensitivity)
+concat() - join the strings
+substring() - extracting substring from main string
+replace() - replacing characters/strings within a string
+contains() - checks string contains another string
+--------
+substring(starting index, ending index)
+
+0 1 2 3 4 5 6---> Starting Index
+W E L C O M E
+1 2 3 4 5 6 7---> Ending Index
+
+s.substring(0,3)---> W E L
+s.substring(2,5)---> L C O
+s.substring(4,7)---> O M E
+___________________________________________________________________________________________
+ArrayList & Hash Map
+--------------------
+Array Limitations
+1. Fixed in size
+2.we can only store same data type elements.
+we can overcome these limitations by using arraylist.
+
+ArrayList
+1.ArrayList is data structure in Java.
+2.ArrayList has no limit in size.
+3.We can store any kind of data type elements.
+
+int a[] = new int[5]; //normal array declaration
+
+Notation-1
+---------
+ArrayList al = new ArrayList(); //allows all the data types elements
+
+Notation-2
+---------
+ArrayList<String> al = new ArrayList<String>(); //allows only string data type elements
+ArrayList<Integer> al = new ArrayList<Integer>(); // allows only integer data type elements
+
+
+al.add()--> adding elements into arraylist
+al.size()--> returns the size of arraylist
+al.add(2,"value")--> inserting value in the middle	
+al.remove(value)--> remove element
+al.remove(index)-->after number of elements
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
